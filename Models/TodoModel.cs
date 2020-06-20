@@ -9,20 +9,20 @@ namespace TodoApp.Models
 {
     class TodoModel : INotifyPropertyChanged
     {
-        private bool _isDone;
         private string _text;
 
-        public DateTime CreationDate { get; set; } = DateTime.Now;
-        public bool IsDone
-        {
-            get { return _isDone; }
-            set {
-                if (_isDone == value)
-                    return;
-                _isDone = value;
-                OnPropertyChanged("IsDone");
-                }
-        }
+        //private bool _isDone;
+        //public DateTime CreationDate { get; set; } = DateTime.Now;
+        //public bool IsDone
+        //{
+        //    get { return _isDone; }
+        //    set {
+        //        if (_isDone == value)
+        //            return;
+        //        _isDone = value;
+        //        OnPropertyChanged("IsDone");
+        //        }
+        //}
         public string Text
         {
             get { return _text; }
