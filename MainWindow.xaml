@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TodoApp"
         mc:Ignorable="d"
-        Title="TodoApp" Height="450" Width="800" Loaded="Window_Loaded">
+        Title="TodoApp" Height="450" Width="800" Loaded="Window_Loaded" >
     <Grid>
         <DataGrid x:Name="dgTodoList" FontSize="16" FontWeight="Bold" Margin="10" Padding="10" AutoGenerateColumns="False">  <!--Тут "dgTodoList" - это имя к которому и по которому мы будем обращаться к элементу из основного кода-->
 
