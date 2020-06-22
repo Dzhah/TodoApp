@@ -11,18 +11,6 @@ namespace TodoApp.Models
     {
         private string _text;
 
-        //private bool _isDone;
-        //public DateTime CreationDate { get; set; } = DateTime.Now;
-        //public bool IsDone
-        //{
-        //    get { return _isDone; }
-        //    set {
-        //        if (_isDone == value)
-        //            return;
-        //        _isDone = value;
-        //        OnPropertyChanged("IsDone");
-        //        }
-        //}
         public string Text
         {
             get { return _text; }
@@ -39,12 +27,6 @@ namespace TodoApp.Models
         protected virtual void OnPropertyChanged(string propertyName = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-
-            //if (PropertyChanged != null)
-            //{
-            //    PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            //}
-
         }
 
     }

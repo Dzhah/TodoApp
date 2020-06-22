@@ -10,20 +10,80 @@
         <Style TargetType="DataGridCell">
             <Style.Setters>
                 <Setter Property="TextBlock.TextAlignment" Value="Center" />
+                <Setter Property="BorderThickness" Value="0"/>
             </Style.Setters>
         </Style>
+        
     </Window.Resources>
-    <Grid>
-        <DataGrid x:Name="dgTodoList" FontSize="16" FontWeight="Bold" Margin="10" Padding="10" AutoGenerateColumns="False" HorizontalContentAlignment="Right" >  <!--Тут "dgTodoList" - это имя к которому и по которому мы будем обращаться к элементу из основного кода-->
+    
+    <Grid Background="#515c6b">
+        <Grid.Resources>
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#EEEEEE" />
+            <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
+            <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
+            
+        </Grid.Resources>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="80" />
+            
+        </Grid.ColumnDefinitions>
+        <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
+        
+
+        
+        
+        <DataGrid Grid.Column="2" x:Name="dgTodoList" FontSize="16" FontWeight="Bold"  AutoGenerateColumns="False" 
+                  HorizontalContentAlignment="Right"  GridLinesVisibility ="None" HeadersVisibility ="None" BorderThickness="0"
+                  Margin="0,20,0,0" >
+            <!-- This is required to handle CTRL + C when something is selected in the DataGrid -->
+            <DataGrid.CommandBindings>
+                <CommandBinding Command="Copy" Executed="CopyCommand" />
+            </DataGrid.CommandBindings>
+
+            <!-- This is required to handle CTRL + C when something is selected in the DataGrid -->
+            <DataGrid.InputBindings>
+                <KeyBinding Key="C" Modifiers="Control" Command="Copy" />
+            </DataGrid.InputBindings>
+            <!--  -->
+            
+            <DataGrid.Resources>
+                <Style TargetType="{x:Type DataGridRow}">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Height" Value="24" />
+                    <Setter Property="Foreground" Value="DarkGray" />
+                    <Setter Property="FontSize" Value="16" />
+                    
+                </Style>
+
+                <Style TargetType="{x:Type DataGridCell}">
+                    <Setter Property="BorderThickness" Value="0" />
+                    <Setter Property="FocusVisualStyle" Value="{x:Null}" />
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="HorizontalAlignment" Value="Center"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#00000000" />
+                            <Setter Property="Foreground" Value="DarkGray" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+                <Style TargetType="{x:Type DataGrid}">
+                    <Setter Property="Background" Value="Transparent"/>
+                </Style>
+            </DataGrid.Resources>
+
 
             <DataGrid.Columns>
-                <!--<DataGridTextColumn Binding="{Binding Path=CreationDate }" IsReadOnly ="True" Header=" CreationDate" Width="180"/>
-                <DataGridCheckBoxColumn Binding="{Binding Path=IsDone, UpdateSourceTrigger=PropertyChanged}"  IsReadOnly = "False" Header=" Done" Width="80"/>-->
-                <DataGridTextColumn Binding="{Binding Path=Text }"  Width="*"/>
+                <DataGridTextColumn Binding="{Binding Path=Text }"  Width="*" />
             </DataGrid.Columns>
                   
         </DataGrid>
+    
+    
     </Grid>
+    
     
 </Window>
     

@@ -44,16 +44,6 @@ namespace TodoApp
                 Close();
             }
 
-            
-
-
-            //_todoDataList = new BindingList<TodoModel>()
-            //{
-            //    new TodoModel(){Text = "12asbrbwrw"},
-            //    new TodoModel(){Text = "34asbrtkrebwrw"},
-            //    new TodoModel(){Text = "56asbsjyrtkrebwrw", IsDone = true}
-            //};
-
             dgTodoList.ItemsSource = _todoDataList;
             _todoDataList.ListChanged += _todoDataList_ListChanged;
 
@@ -74,28 +64,10 @@ namespace TodoApp
                 }
             }
 
-            //switch (e.ListChangedType)
-            //{
-            //    case ListChangedType.Reset:
-            //        break;
-            //    case ListChangedType.ItemAdded:
-            //        break;
-            //    case ListChangedType.ItemDeleted:
-            //        break;
-            //    case ListChangedType.ItemMoved:
-            //        break;
-            //    case ListChangedType.ItemChanged:
-            //        break;
-            //    case ListChangedType.PropertyDescriptorAdded:
-            //        break;
-            //    case ListChangedType.PropertyDescriptorDeleted:
-            //        break;
-            //    case ListChangedType.PropertyDescriptorChanged:
-            //        break;
-            //    default:
-            //        break;
-
-            //}
+        }
+        private void CopyCommand(object sender, ExecutedRoutedEventArgs e)
+        {
+            
         }
     }
 }
