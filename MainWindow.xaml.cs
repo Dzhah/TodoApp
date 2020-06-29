@@ -26,11 +26,24 @@ namespace TodoApp
         private readonly string PATH = $"{Environment.CurrentDirectory}\\todoDataList.json";
         private BindingList<TodoModel> _todoDataList;
         private FileIOService _fileIOService;
+        System.Windows.Threading.DispatcherTimer Timer = new System.Windows.Threading.DispatcherTimer(); //  --- For WPF Clock
         public MainWindow()
         {
             InitializeComponent();
-        }
+            Timer.Tick += new EventHandler(Timer_Click);    //  --- For WPF Clock
+            Timer.Interval = new TimeSpan(0, 0, 1);         //  --- For WPF Clock
+            Timer.Start();                                  //  --- For WPF Clock
 
+        }
+        private void Timer_Click(object sender, EventArgs e)    //  --- For WPF Clock
+
+        {                                                         //  --- For WPF Clock
+            DateTime d;                                             //  --- For WPF Clock
+            d = DateTime.Now;                                         //  --- For WPF Clock
+            dt.Text = d.Day + " " + d.ToString("MMMM").ToUpper();       //  --- For WPF Clock
+            clk.Text = d.Hour+":"+d.Minute;                             //  --- For WPF Clock
+            wk.Text = d.ToString("dddd").ToUpper();                     //  --- For WPF Clock
+        }                                                               //  --- For WPF Clock
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             _fileIOService = new FileIOService(PATH);

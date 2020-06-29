@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TodoApp"
         mc:Ignorable="d"
-        Title="TodoApp" Height="450" Width="800" Loaded="Window_Loaded" >
+        Title="TodoApp" Height="310" Width="500" Loaded="Window_Loaded" ResizeMode="NoResize">
     <Window.Resources>
         <Style TargetType="DataGridCell">
             <Style.Setters>
@@ -21,18 +21,26 @@
             <SolidColorBrush x:Key="{x:Static SystemColors.HighlightBrushKey}" Color="#EEEEEE" />
             <SolidColorBrush x:Key="{x:Static SystemColors.HighlightTextBrushKey}" Color="Black" />
             <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="Transparent" />
-            
         </Grid.Resources>
         
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="80" />
-            
         </Grid.ColumnDefinitions>
-        <TextBlock FontSize="55" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap">Left side</TextBlock>
+
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="70" />
+            </Grid.RowDefinitions>
+            <TextBlock FontFamily="Calibri" FontSize="30" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold" Foreground="#8F8F8F" Name="dt">26 ИЮНЬ</TextBlock>
+            <TextBlock Grid.Row="1" FontFamily="Calibri" FontSize="150" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold" Foreground="#ABABAB" Name="clk">12:34</TextBlock>
+            <TextBlock Grid.Row="2" FontFamily="Calibri" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontWeight="Bold" Foreground="#8F8F8F" Name="wk">ПОНЕДЕЛЬНИК</TextBlock>
+        </Grid>
+        
         
 
-        
         
         <DataGrid Grid.Column="2" x:Name="dgTodoList" FontSize="16" FontWeight="Bold"  AutoGenerateColumns="False" 
                   HorizontalContentAlignment="Right"  GridLinesVisibility ="None" HeadersVisibility ="None" BorderThickness="0"
@@ -76,7 +84,7 @@
 
 
             <DataGrid.Columns>
-                <DataGridTextColumn Binding="{Binding Path=Text }"  Width="*" />
+                <DataGridTextColumn Binding="{Binding Path=Text}"  Width="*" />
             </DataGrid.Columns>
                   
         </DataGrid>
